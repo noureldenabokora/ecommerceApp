@@ -1,13 +1,13 @@
 <div class="mb-3">
-    <label for="" class="form-lable" appHighlightCard>Category</label>
-    <select class="form-select form-select-lg" aria-label="Default select example" [(ngModel)]="selectedCategoryId">
-         <option *ngFor="let cat of caregories" [value]="cat.id">{{cat.name}}</option>
+    <!-- <select class="form-select form-select-lg" (change)="filterProducts()"   aria-label="Default select example" [(ngModel)]="selectedCategoryId">
+      <option selected [value]="0">All</option>   
+      <option *ngFor="let cat of caregories" [value]="cat.id">{{cat.name}}</option>
 
-</select>
+</select> -->
 </div>
 
 <div class="row row-cols-1 row-cols-md-3 g-4">
-  <div class="col"  *ngFor="let product of products" [class.d-none]="selectedCategoryId !=0 && product.catId != selectedCategoryId">
+  <div class="col"  *ngFor="let product of filteredProducts" [class.d-none]="selectedCategoryId !=0 && product.catId != selectedCategoryId">
     <div class="card" >
       <img src="{{product.imageUrl}}" class="card-img-top" alt="...">
       <div class="card-body" appHighlightCard externalcolor ='pink' [style.background-color]="(product.quantity==0)?'Yellow':'white'">
@@ -27,4 +27,4 @@
   </div>
 </div>
 
-<h2>{{numn | square}} </h2>
+<!-- <h2>{{numn | square}} </h2> -->
